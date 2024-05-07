@@ -1085,7 +1085,7 @@ class XGOEDU():
         else:
             path="/home/pi/xgoPictures/"
             image=np.array(Image.open(path+target))
-
+        image = cv2.flip(image, 1)  # 第一个参数是图像，第二个参数是翻转代码，1表示沿y轴翻转
         frame_mask=self.filter_img(image, color_mask)
         
         img = cv2.medianBlur(frame_mask, 5)
